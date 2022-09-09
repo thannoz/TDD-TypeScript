@@ -9,3 +9,14 @@ export const CellState: Record<string, Cell> = {
   mark: 11,
   weakMark: 12,
 };
+
+export const emptyFieldGenerator = (
+  size: number,
+  state: Cell = CellState.empty
+): Field => new Array(size).fill(null).map(() => new Array(size).fill(state));
+
+export const fieldGenerator = (size: number, density: number): Field => {
+  if (density < 0 || density > 1) {
+    throw new Error("Density must be between 0 and 1");
+  }
+};
